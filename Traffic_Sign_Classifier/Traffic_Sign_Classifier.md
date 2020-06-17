@@ -559,7 +559,7 @@ import random
 def custom_zoom_translation(image):
     
     # scale up by random amount
-    sc = random.uniform(0,.3)
+    sc = random.uniform(0,.4)
     rescaled = sk.transform.rescale(image, 1 + sc, multichannel = True,anti_aliasing=False,mode='constant')
 
     # add random translation (left or right, up or down)
@@ -635,10 +635,11 @@ def augment_dataset(images,labels,class_balance):
 
     for i,c in enumerate(class_balance):
         
-        # augment images, but don't go crazy. the max number fo images to create is the same number of
+        # augment images, but don't go crazy. the max number fo images to create is double number of
         # images that already exist
         
-        no_to_create = min( c * 2, (max_class-c))
+        no_to_create = min( c * 3, (max_class-c))
+        
         
         print("Class: {} - {} images, need to add {} images".format(i,c,no_to_create))
         go_augment( np.where(labels == i),no_to_create,i)
@@ -763,8 +764,8 @@ plt.show()
 aug_X_train, aug_y_train =  augment_dataset(X_train,y_train,class_balance)
 ```
 
-    Class: 0 - 180 images, need to add 360 images
-    generated 360 images
+    Class: 0 - 180 images, need to add 540 images
+    generated 540 images
     Class: 1 - 1980 images, need to add 30 images
     generated 30 images
     Class: 2 - 2010 images, need to add 0 images
@@ -775,8 +776,8 @@ aug_X_train, aug_y_train =  augment_dataset(X_train,y_train,class_balance)
     generated 240 images
     Class: 5 - 1650 images, need to add 360 images
     generated 360 images
-    Class: 6 - 360 images, need to add 720 images
-    generated 720 images
+    Class: 6 - 360 images, need to add 1080 images
+    generated 1080 images
     Class: 7 - 1290 images, need to add 720 images
     generated 720 images
     Class: 8 - 1260 images, need to add 750 images
@@ -793,62 +794,62 @@ aug_X_train, aug_y_train =  augment_dataset(X_train,y_train,class_balance)
     generated 90 images
     Class: 14 - 690 images, need to add 1320 images
     generated 1320 images
-    Class: 15 - 540 images, need to add 1080 images
+    Class: 15 - 540 images, need to add 1470 images
+    generated 1470 images
+    Class: 16 - 360 images, need to add 1080 images
     generated 1080 images
-    Class: 16 - 360 images, need to add 720 images
-    generated 720 images
     Class: 17 - 990 images, need to add 1020 images
     generated 1020 images
     Class: 18 - 1080 images, need to add 930 images
     generated 930 images
-    Class: 19 - 180 images, need to add 360 images
-    generated 360 images
-    Class: 20 - 300 images, need to add 600 images
-    generated 600 images
-    Class: 21 - 270 images, need to add 540 images
+    Class: 19 - 180 images, need to add 540 images
     generated 540 images
-    Class: 22 - 330 images, need to add 660 images
-    generated 660 images
-    Class: 23 - 450 images, need to add 900 images
+    Class: 20 - 300 images, need to add 900 images
     generated 900 images
-    Class: 24 - 240 images, need to add 480 images
-    generated 480 images
+    Class: 21 - 270 images, need to add 810 images
+    generated 810 images
+    Class: 22 - 330 images, need to add 990 images
+    generated 990 images
+    Class: 23 - 450 images, need to add 1350 images
+    generated 1350 images
+    Class: 24 - 240 images, need to add 720 images
+    generated 720 images
     Class: 25 - 1350 images, need to add 660 images
     generated 660 images
-    Class: 26 - 540 images, need to add 1080 images
-    generated 1080 images
-    Class: 27 - 210 images, need to add 420 images
-    generated 420 images
-    Class: 28 - 480 images, need to add 960 images
-    generated 960 images
-    Class: 29 - 240 images, need to add 480 images
-    generated 480 images
-    Class: 30 - 390 images, need to add 780 images
-    generated 780 images
+    Class: 26 - 540 images, need to add 1470 images
+    generated 1470 images
+    Class: 27 - 210 images, need to add 630 images
+    generated 630 images
+    Class: 28 - 480 images, need to add 1440 images
+    generated 1440 images
+    Class: 29 - 240 images, need to add 720 images
+    generated 720 images
+    Class: 30 - 390 images, need to add 1170 images
+    generated 1170 images
     Class: 31 - 690 images, need to add 1320 images
     generated 1320 images
-    Class: 32 - 210 images, need to add 420 images
-    generated 420 images
-    Class: 33 - 599 images, need to add 1198 images
-    generated 1198 images
-    Class: 34 - 360 images, need to add 720 images
-    generated 720 images
+    Class: 32 - 210 images, need to add 630 images
+    generated 630 images
+    Class: 33 - 599 images, need to add 1411 images
+    generated 1411 images
+    Class: 34 - 360 images, need to add 1080 images
+    generated 1080 images
     Class: 35 - 1080 images, need to add 930 images
     generated 930 images
-    Class: 36 - 330 images, need to add 660 images
-    generated 660 images
-    Class: 37 - 180 images, need to add 360 images
-    generated 360 images
+    Class: 36 - 330 images, need to add 990 images
+    generated 990 images
+    Class: 37 - 180 images, need to add 540 images
+    generated 540 images
     Class: 38 - 1860 images, need to add 150 images
     generated 150 images
-    Class: 39 - 270 images, need to add 540 images
-    generated 540 images
-    Class: 40 - 300 images, need to add 600 images
-    generated 600 images
-    Class: 41 - 210 images, need to add 420 images
-    generated 420 images
-    Class: 42 - 210 images, need to add 420 images
-    generated 420 images
+    Class: 39 - 270 images, need to add 810 images
+    generated 810 images
+    Class: 40 - 300 images, need to add 900 images
+    generated 900 images
+    Class: 41 - 210 images, need to add 630 images
+    generated 630 images
+    Class: 42 - 210 images, need to add 630 images
+    generated 630 images
 
 
 
@@ -895,7 +896,7 @@ aug_X_train, aug_y_train =  augment_dataset(X_train,y_train,class_balance)
 _ = check_balance(aug_X_train,aug_y_train,n_classes)
 ```
 
-    Checking data: Labels: 61407, Sum of all images: 61407
+    Checking data: Labels: 68460, Sum of all images: 68460
 
 
 
@@ -930,7 +931,7 @@ print(X_valid.shape)
 print(X_test.shape)
 ```
 
-    (61407, 32, 32, 1)
+    (68460, 32, 32, 1)
     (4410, 32, 32, 1)
     (12630, 32, 32, 1)
 
@@ -1080,7 +1081,7 @@ one_hot_y = tf.one_hot(y, n_classes)
 
 
 ```python
-rate = 0.001
+rate = 0.0015
 
 logits = LeNet(x)
 cross_entropy = tf.nn.softmax_cross_entropy_with_logits(labels=one_hot_y, logits=logits)
@@ -1111,8 +1112,8 @@ def evaluate(X_data, y_data,batch_size):
 
 
 ```python
-EPOCHS = 40
-BATCH_SIZE = 128
+EPOCHS = 200
+BATCH_SIZE = 256
 
 def train_model(X_train,y_train,X_valid,y_valid,epochs=EPOCHS,batch_size=BATCH_SIZE,target_validation=None):
     
@@ -1177,140 +1178,178 @@ history = train_model(X_train,y_train,X_valid,y_valid,epochs=EPOCHS,target_valid
     Training...
     
     EPOCH 1 ...
-    Accuracy ===> training: 0.364  Validation: 0.541
+    Accuracy ===> training: 0.268  Validation: 0.451
     
-    Model saved for validation accuracy of: 0.541
+    Model saved for validation accuracy of: 0.451
     EPOCH 2 ...
-    Accuracy ===> training: 0.493  Validation: 0.759
+    Accuracy ===> training: 0.429  Validation: 0.742
     
-    Model saved for validation accuracy of: 0.759
+    Model saved for validation accuracy of: 0.742
     EPOCH 3 ...
-    Accuracy ===> training: 0.528  Validation: 0.830
+    Accuracy ===> training: 0.470  Validation: 0.824
     
-    Model saved for validation accuracy of: 0.830
+    Model saved for validation accuracy of: 0.824
     EPOCH 4 ...
-    Accuracy ===> training: 0.546  Validation: 0.849
+    Accuracy ===> training: 0.489  Validation: 0.843
     
-    Model saved for validation accuracy of: 0.849
+    Model saved for validation accuracy of: 0.843
     EPOCH 5 ...
-    Accuracy ===> training: 0.557  Validation: 0.870
+    Accuracy ===> training: 0.502  Validation: 0.867
     
-    Model saved for validation accuracy of: 0.870
+    Model saved for validation accuracy of: 0.867
     EPOCH 6 ...
-    Accuracy ===> training: 0.562  Validation: 0.881
+    Accuracy ===> training: 0.509  Validation: 0.881
     
     Model saved for validation accuracy of: 0.881
     EPOCH 7 ...
-    Accuracy ===> training: 0.568  Validation: 0.889
+    Accuracy ===> training: 0.510  Validation: 0.898
     
-    Model saved for validation accuracy of: 0.889
+    Model saved for validation accuracy of: 0.898
     EPOCH 8 ...
-    Accuracy ===> training: 0.572  Validation: 0.899
+    Accuracy ===> training: 0.514  Validation: 0.884
     
-    Model saved for validation accuracy of: 0.899
     EPOCH 9 ...
-    Accuracy ===> training: 0.573  Validation: 0.893
+    Accuracy ===> training: 0.514  Validation: 0.909
     
+    Model saved for validation accuracy of: 0.909
     EPOCH 10 ...
-    Accuracy ===> training: 0.573  Validation: 0.899
+    Accuracy ===> training: 0.515  Validation: 0.898
     
-    Model saved for validation accuracy of: 0.899
     EPOCH 11 ...
-    Accuracy ===> training: 0.575  Validation: 0.899
+    Accuracy ===> training: 0.518  Validation: 0.900
     
-    Model saved for validation accuracy of: 0.899
     EPOCH 12 ...
-    Accuracy ===> training: 0.576  Validation: 0.908
+    Accuracy ===> training: 0.518  Validation: 0.910
     
-    Model saved for validation accuracy of: 0.908
+    Model saved for validation accuracy of: 0.910
     EPOCH 13 ...
-    Accuracy ===> training: 0.586  Validation: 0.913
+    Accuracy ===> training: 0.521  Validation: 0.913
     
     Model saved for validation accuracy of: 0.913
     EPOCH 14 ...
-    Accuracy ===> training: 0.592  Validation: 0.905
+    Accuracy ===> training: 0.521  Validation: 0.923
     
+    Model saved for validation accuracy of: 0.923
     EPOCH 15 ...
-    Accuracy ===> training: 0.595  Validation: 0.902
+    Accuracy ===> training: 0.519  Validation: 0.922
     
     EPOCH 16 ...
-    Accuracy ===> training: 0.604  Validation: 0.904
+    Accuracy ===> training: 0.518  Validation: 0.904
     
     EPOCH 17 ...
-    Accuracy ===> training: 0.622  Validation: 0.893
+    Accuracy ===> training: 0.524  Validation: 0.915
     
     EPOCH 18 ...
-    Accuracy ===> training: 0.672  Validation: 0.908
+    Accuracy ===> training: 0.523  Validation: 0.919
     
     EPOCH 19 ...
-    Accuracy ===> training: 0.654  Validation: 0.906
+    Accuracy ===> training: 0.524  Validation: 0.922
     
     EPOCH 20 ...
-    Accuracy ===> training: 0.694  Validation: 0.899
+    Accuracy ===> training: 0.521  Validation: 0.907
     
     EPOCH 21 ...
-    Accuracy ===> training: 0.711  Validation: 0.914
+    Accuracy ===> training: 0.524  Validation: 0.916
     
-    Model saved for validation accuracy of: 0.914
     EPOCH 22 ...
-    Accuracy ===> training: 0.735  Validation: 0.920
+    Accuracy ===> training: 0.525  Validation: 0.907
     
-    Model saved for validation accuracy of: 0.920
     EPOCH 23 ...
-    Accuracy ===> training: 0.741  Validation: 0.905
+    Accuracy ===> training: 0.526  Validation: 0.929
     
+    Model saved for validation accuracy of: 0.929
     EPOCH 24 ...
-    Accuracy ===> training: 0.738  Validation: 0.909
+    Accuracy ===> training: 0.526  Validation: 0.926
     
     EPOCH 25 ...
-    Accuracy ===> training: 0.729  Validation: 0.912
+    Accuracy ===> training: 0.525  Validation: 0.910
     
     EPOCH 26 ...
-    Accuracy ===> training: 0.717  Validation: 0.914
+    Accuracy ===> training: 0.522  Validation: 0.897
     
     EPOCH 27 ...
-    Accuracy ===> training: 0.755  Validation: 0.918
+    Accuracy ===> training: 0.536  Validation: 0.927
     
     EPOCH 28 ...
-    Accuracy ===> training: 0.769  Validation: 0.912
+    Accuracy ===> training: 0.521  Validation: 0.909
     
     EPOCH 29 ...
-    Accuracy ===> training: 0.745  Validation: 0.915
+    Accuracy ===> training: 0.542  Validation: 0.904
     
     EPOCH 30 ...
-    Accuracy ===> training: 0.765  Validation: 0.905
+    Accuracy ===> training: 0.545  Validation: 0.908
     
     EPOCH 31 ...
-    Accuracy ===> training: 0.668  Validation: 0.917
+    Accuracy ===> training: 0.554  Validation: 0.924
     
     EPOCH 32 ...
-    Accuracy ===> training: 0.777  Validation: 0.913
+    Accuracy ===> training: 0.562  Validation: 0.907
     
     EPOCH 33 ...
-    Accuracy ===> training: 0.767  Validation: 0.915
+    Accuracy ===> training: 0.579  Validation: 0.916
     
     EPOCH 34 ...
-    Accuracy ===> training: 0.765  Validation: 0.896
+    Accuracy ===> training: 0.527  Validation: 0.924
     
     EPOCH 35 ...
-    Accuracy ===> training: 0.767  Validation: 0.915
+    Accuracy ===> training: 0.560  Validation: 0.902
     
     EPOCH 36 ...
-    Accuracy ===> training: 0.783  Validation: 0.913
+    Accuracy ===> training: 0.616  Validation: 0.907
     
     EPOCH 37 ...
-    Accuracy ===> training: 0.797  Validation: 0.912
+    Accuracy ===> training: 0.619  Validation: 0.902
     
     EPOCH 38 ...
-    Accuracy ===> training: 0.627  Validation: 0.906
+    Accuracy ===> training: 0.616  Validation: 0.915
     
     EPOCH 39 ...
-    Accuracy ===> training: 0.792  Validation: 0.913
+    Accuracy ===> training: 0.647  Validation: 0.920
     
     EPOCH 40 ...
-    Accuracy ===> training: 0.788  Validation: 0.915
+    Accuracy ===> training: 0.652  Validation: 0.911
     
-    The saved model reached a validation accuracy of: 0.920
+    EPOCH 41 ...
+    Accuracy ===> training: 0.662  Validation: 0.906
+    
+    EPOCH 42 ...
+    Accuracy ===> training: 0.668  Validation: 0.892
+    
+    EPOCH 43 ...
+    Accuracy ===> training: 0.666  Validation: 0.890
+    
+    EPOCH 44 ...
+    Accuracy ===> training: 0.681  Validation: 0.913
+    
+    EPOCH 45 ...
+    Accuracy ===> training: 0.686  Validation: 0.912
+    
+    EPOCH 46 ...
+    Accuracy ===> training: 0.697  Validation: 0.922
+    
+    EPOCH 47 ...
+    Accuracy ===> training: 0.684  Validation: 0.924
+    
+    EPOCH 48 ...
+    Accuracy ===> training: 0.680  Validation: 0.897
+    
+    EPOCH 49 ...
+    Accuracy ===> training: 0.704  Validation: 0.922
+    
+    EPOCH 50 ...
+    Accuracy ===> training: 0.654  Validation: 0.908
+    
+    EPOCH 51 ...
+    Accuracy ===> training: 0.715  Validation: 0.921
+    
+    EPOCH 52 ...
+    Accuracy ===> training: 0.718  Validation: 0.925
+    
+    EPOCH 53 ...
+    Accuracy ===> training: 0.722  Validation: 0.937
+    
+    Model saved for validation accuracy of: 0.937
+    The saved model reached a validation accuracy of: 0.937
 
 
 
@@ -1319,7 +1358,7 @@ test_accuracy = evaluate_model(X_test, y_test)
 ```
 
     INFO:tensorflow:Restoring parameters from ./lenet
-    Test Accuracy = 0.889
+    Test Accuracy = 0.906
 
 
 
@@ -1496,12 +1535,12 @@ df_1.head(len(df_1))
     <tr>
       <th>3</th>
       <td>Beware of ice/snow</td>
-      <td>Children crossing</td>
+      <td>Beware of ice/snow</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Wild animals crossing</td>
-      <td>Dangerous curve to the left</td>
+      <td>Wild animals crossing</td>
     </tr>
   </tbody>
 </table>
@@ -1525,7 +1564,7 @@ de_test_accuracy = len(df_result[(df_result.y == df_result.p)]) / len(df_result)
 print("Test Accuracy based on German Signs = {:.1f}%".format(de_test_accuracy))
 ```
 
-    Test Accuracy based on German Signs = 60.0%
+    Test Accuracy based on German Signs = 100.0%
 
 
 ### Output Top 5 Softmax Probabilities For Each Image Found on the Web
@@ -1579,20 +1618,20 @@ print(result)
 ```
 
     INFO:tensorflow:Restoring parameters from ./lenet
-    TopKV2(values=array([[  9.99912143e-01,   5.15225765e-05,   1.82617841e-05,
-              1.72037071e-05,   4.05409310e-07],
-           [  1.00000000e+00,   5.19690566e-08,   4.76536501e-16,
-              1.20555616e-19,   5.51929091e-20],
+    TopKV2(values=array([[  1.00000000e+00,   3.61591590e-11,   8.95213439e-20,
+              2.40431778e-22,   1.03907338e-24],
+           [  1.00000000e+00,   2.89657190e-34,   0.00000000e+00,
+              0.00000000e+00,   0.00000000e+00],
            [  1.00000000e+00,   0.00000000e+00,   0.00000000e+00,
               0.00000000e+00,   0.00000000e+00],
-           [  1.00000000e+00,   3.82220200e-10,   5.96201283e-11,
-              4.68444858e-12,   3.81337740e-17],
-           [  9.42826867e-01,   5.24662845e-02,   3.35078011e-03,
-              1.03801640e-03,   3.14947945e-04]], dtype=float32), indices=array([[ 1, 38,  0,  3, 32],
-           [ 4,  0,  8,  7,  1],
+           [  1.00000000e+00,   3.46460709e-08,   2.72865863e-09,
+              2.23976705e-11,   9.21539863e-13],
+           [  8.06312382e-01,   1.90003663e-01,   1.88846956e-03,
+              8.32155347e-04,   4.77921334e-04]], dtype=float32), indices=array([[ 1,  0,  2,  5,  3],
+           [ 4,  1,  0,  2,  3],
            [25,  0,  1,  2,  3],
-           [28, 11, 41, 30,  9],
-           [23, 11, 19, 31, 21]], dtype=int32))
+           [30, 11, 23, 20, 24],
+           [31, 20, 19, 29, 23]], dtype=int32))
 
 
 
@@ -1605,10 +1644,10 @@ from IPython.display import display
 for p,i,y,img in zip(result[0],result[1],y_test_labels,X_untouched_images):
     # print(p,i,i[np.argmax(p)],sign_text(i[np.argmax(p)]),y,sign_text(y))
     
-    print('\n\n\n',y,sign_text(y))
-    
+    print('\n\n')
     plt.figure(figsize=(3,3))
     plt.imshow(img)
+    plt.title('{} - {}'.format(y,sign_text(y)))
     plt.show()
     
     show_list = [[prob,sign_text(pred)] for prob,pred in zip(p,i)]
@@ -1619,7 +1658,6 @@ for p,i,y,img in zip(result[0],result[1],y_test_labels,X_untouched_images):
     
     
     
-     1 Speed limit (30km/h)
 
 
 
@@ -1652,28 +1690,28 @@ for p,i,y,img in zip(result[0],result[1],y_test_labels,X_untouched_images):
   <tbody>
     <tr>
       <th>0</th>
-      <td>9.999121e-01</td>
+      <td>1.000000e+00</td>
       <td>Speed limit (30km/h)</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>5.152258e-05</td>
-      <td>Keep right</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.826178e-05</td>
+      <td>3.615916e-11</td>
       <td>Speed limit (20km/h)</td>
     </tr>
     <tr>
+      <th>2</th>
+      <td>8.952134e-20</td>
+      <td>Speed limit (50km/h)</td>
+    </tr>
+    <tr>
       <th>3</th>
-      <td>1.720371e-05</td>
-      <td>Speed limit (60km/h)</td>
+      <td>2.404318e-22</td>
+      <td>Speed limit (80km/h)</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>4.054093e-07</td>
-      <td>End of all speed and passing limits</td>
+      <td>1.039073e-24</td>
+      <td>Speed limit (60km/h)</td>
     </tr>
   </tbody>
 </table>
@@ -1683,7 +1721,6 @@ for p,i,y,img in zip(result[0],result[1],y_test_labels,X_untouched_images):
     
     
     
-     4 Speed limit (70km/h)
 
 
 
@@ -1721,23 +1758,23 @@ for p,i,y,img in zip(result[0],result[1],y_test_labels,X_untouched_images):
     </tr>
     <tr>
       <th>1</th>
-      <td>5.196906e-08</td>
-      <td>Speed limit (20km/h)</td>
+      <td>2.896572e-34</td>
+      <td>Speed limit (30km/h)</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>4.765365e-16</td>
-      <td>Speed limit (120km/h)</td>
+      <td>0.000000e+00</td>
+      <td>Speed limit (20km/h)</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.205556e-19</td>
-      <td>Speed limit (100km/h)</td>
+      <td>0.000000e+00</td>
+      <td>Speed limit (50km/h)</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5.519291e-20</td>
-      <td>Speed limit (30km/h)</td>
+      <td>0.000000e+00</td>
+      <td>Speed limit (60km/h)</td>
     </tr>
   </tbody>
 </table>
@@ -1747,7 +1784,6 @@ for p,i,y,img in zip(result[0],result[1],y_test_labels,X_untouched_images):
     
     
     
-     25 Road work
 
 
 
@@ -1811,7 +1847,6 @@ for p,i,y,img in zip(result[0],result[1],y_test_labels,X_untouched_images):
     
     
     
-     30 Beware of ice/snow
 
 
 
@@ -1845,27 +1880,27 @@ for p,i,y,img in zip(result[0],result[1],y_test_labels,X_untouched_images):
     <tr>
       <th>0</th>
       <td>1.000000e+00</td>
-      <td>Children crossing</td>
+      <td>Beware of ice/snow</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>3.822202e-10</td>
+      <td>3.464607e-08</td>
       <td>Right-of-way at the next intersection</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>5.962013e-11</td>
-      <td>End of no passing</td>
+      <td>2.728659e-09</td>
+      <td>Slippery road</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>4.684449e-12</td>
-      <td>Beware of ice/snow</td>
+      <td>2.239767e-11</td>
+      <td>Dangerous curve to the right</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>3.813377e-17</td>
-      <td>No passing</td>
+      <td>9.215399e-13</td>
+      <td>Road narrows on the right</td>
     </tr>
   </tbody>
 </table>
@@ -1875,7 +1910,6 @@ for p,i,y,img in zip(result[0],result[1],y_test_labels,X_untouched_images):
     
     
     
-     31 Wild animals crossing
 
 
 
@@ -1908,28 +1942,28 @@ for p,i,y,img in zip(result[0],result[1],y_test_labels,X_untouched_images):
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.942827</td>
-      <td>Slippery road</td>
+      <td>0.806312</td>
+      <td>Wild animals crossing</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.052466</td>
-      <td>Right-of-way at the next intersection</td>
+      <td>0.190004</td>
+      <td>Dangerous curve to the right</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.003351</td>
+      <td>0.001888</td>
       <td>Dangerous curve to the left</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.001038</td>
-      <td>Wild animals crossing</td>
+      <td>0.000832</td>
+      <td>Bicycles crossing</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.000315</td>
-      <td>Double curve</td>
+      <td>0.000478</td>
+      <td>Slippery road</td>
     </tr>
   </tbody>
 </table>
